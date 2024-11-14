@@ -1,12 +1,14 @@
 import express from "express";
+import morgan from "morgan";
 
 const PORT = 4000;
 const app = express();
+const logger = morgan("");
 
-const logger = (req, res, next) => {
-	console.log(`${req.method} ${req.url}`);
-	next();
-}
+// const logger = (req, res, next) => {
+// 	console.log(`${req.method} ${req.url}`);
+// 	next();
+// }
 
 // const privateMiddleware = (req, res, next) => {
 // 	const url = req.url;
@@ -32,8 +34,9 @@ const handleLogin = (req, res) => {
 // 	return res.send('welcome to the private lounge.')
 // }
 
-app.use(logger);
+// app.use(logger);
 // app.use(privateMiddleware);
+app.use(logger);
 
 // app.get("/", logger, handleHome);
 app.get("/", handleHome);
