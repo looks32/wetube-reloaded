@@ -3,7 +3,9 @@ import morgan from "morgan";
 
 const PORT = 4000;
 const app = express();
-const logger = morgan("");
+const logger = morgan("dev");
+
+
 
 // const logger = (req, res, next) => {
 // 	console.log(`${req.method} ${req.url}`);
