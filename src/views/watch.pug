@@ -1,4 +1,8 @@
 extends base
 
 block content
-    h1=video.title
+    h3 #{video.views} #{video.views === 1 ? "view" : "views"}
+    a(href=`${video.id}/edit`) Edit Video &rarr;
+
+    // /edit를 넣으면 경로에 상관 없이 localhost.com/edit (absolute  url)
+    // edit 만 넣어주면 현재의 상태만 바뀐다. 현재 상태가 localhost.com/video 일때 localhost.com/video/edit로 바뀜 (relative url)
