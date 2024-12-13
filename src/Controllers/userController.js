@@ -41,7 +41,10 @@ export const getLogin = (req, res) =>
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
   const pageTitle = "Login";
-  const user = await User.findOne({ username, socialOnly: false });
+
+  // 뭔지 몰라서 일단 주석
+  // const user = await User.findOne({ username, socialOnly: false });
+  const user = await User.findOne({ username });
   if (!user) {
     return res.status(400).render("login", {
       pageTitle,
@@ -143,15 +146,15 @@ export const getEdit = (req, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl },
     },
     body: { name, email, username, location },
     file,
   } = req;
-  console.log(file);
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
       username,
