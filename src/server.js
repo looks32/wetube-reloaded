@@ -31,6 +31,7 @@ app.get("/add-one", (req, res, next) => {
   return res.send(`${req.session.id} ${req.session.potato}`);
 });
 
+app.use("/uploads", express.static("uploads"));
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
