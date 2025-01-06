@@ -15,7 +15,7 @@
   \***********************************/
 /***/ (() => {
 
-eval("const startBtn = document.getElementById(\"startBtn\");\nconst handleStart = async () => {\n  const stream = await navigator.mediaDevices.getUserMedia({\n    audio: true,\n    video: true\n  });\n  console.log(stream);\n};\nstartBtn.addEventListener(\"click\", handleStart);\n\n//# sourceURL=webpack://wetube/./src/client/js/recorder.js?");
+eval("const startBtn = document.getElementById(\"startBtn\");\nconst video = document.getElementById(\"preview\");\nconst handleStart = async () => {\n  const stream = await navigator.mediaDevices.getUserMedia({\n    audio: true,\n    video: true\n  });\n  console.log(stream);\n  video.srcObject = stream;\n  video.play();\n};\nstartBtn.addEventListener(\"click\", handleStart);\n\n//# sourceURL=webpack://wetube/./src/client/js/recorder.js?");
 
 /***/ })
 
