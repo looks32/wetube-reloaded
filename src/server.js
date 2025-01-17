@@ -21,7 +21,7 @@ app.use(
     secret: "Hello!", 
     resave: false,
     saveUninitialized: false,
-    store : MongoStore.create({mongoUrl:"mongodb+srv://looks32:pYoCJQwBumcTp6mJ@wetube.rppp1.mongodb.net/wetube?retryWrites=true&w=majority&appName=wetube"})
+    store : MongoStore.create({mongoUrl:process.env.DB_URL})
   })
 );
 

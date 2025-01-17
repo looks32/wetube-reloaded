@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb+srv://looks32:pYoCJQwBumcTp6mJ@wetube.rppp1.mongodb.net/wetube?retryWrites=true&w=majority&appName=wetube", {
+mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
