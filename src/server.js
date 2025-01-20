@@ -6,6 +6,7 @@ import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
+import flash from "express-flash";
 
 
 const app = express();
@@ -32,6 +33,7 @@ app.get("/add-one", (req, res, next) => {
   return res.send(`${req.session.id} ${req.session.potato}`);
 });
 
+app.use(flash());
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
