@@ -1,0 +1,1 @@
+(()=>{const e=document.getElementById("videoContainer"),t=document.getElementById("commentForm"),n=t.querySelector("textarea");t.querySelector("button"),t.addEventListener("submit",(t=>{t.preventDefault(),n.value,e.dataset.id}))})();
