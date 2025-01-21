@@ -1,12 +1,13 @@
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
 import userRouter from "./routers/userRouter";
 import { localsMiddleware } from "./middlewares";
-import flash from "express-flash";
+
 
 
 const app = express();
@@ -25,7 +26,7 @@ app.use(
     store : MongoStore.create({mongoUrl:process.env.DB_URL})
   })
 );
-
+app.use(flash());
 app.use(localsMiddleware);
 
 app.get("/add-one", (req, res, next) => {
@@ -33,7 +34,6 @@ app.get("/add-one", (req, res, next) => {
   return res.send(`${req.session.id} ${req.session.potato}`);
 });
 
-app.use(flash());
 app.use("/uploads", express.static("uploads"));
 app.use("/static", express.static("assets"));
 app.use("/", rootRouter);

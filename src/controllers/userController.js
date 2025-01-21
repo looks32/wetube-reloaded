@@ -141,6 +141,7 @@ export const logout = (req, res) => {
   req.flash("info", "Bye Bye");
   return res.redirect("/");
 };
+
 export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
@@ -164,6 +165,7 @@ export const postEdit = async (req, res) => {
     { new: true }
   );
   req.session.user = updatedUser;
+  req.flash("success", "Changes saved.");
   return res.redirect("/users/edit");
 };
 
