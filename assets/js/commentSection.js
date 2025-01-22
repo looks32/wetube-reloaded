@@ -1,1 +1,1 @@
-(()=>{const e=document.getElementById("videoContainer"),t=document.getElementById("commentForm"),n=t.querySelector("textarea");t.querySelector("button"),t.addEventListener("submit",(t=>{t.preventDefault(),n.value,e.dataset.id}))})();
+(()=>{const e=document.getElementById("videoContainer"),t=document.getElementById("commentForm");t&&t.addEventListener("submit",(n=>{n.preventDefault();const o=t.querySelector("textarea").value,d=e.dataset.id;fetch(`/api/videos/${d}/comment`,{method:"POST",body:{text:o}})}))})();
