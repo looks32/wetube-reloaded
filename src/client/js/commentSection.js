@@ -8,14 +8,15 @@ const addComment = (text, id) => {
   const newComment = document.createElement("li");
   newComment.dataset.id = id;
   newComment.className = "video__comment";
-  const icon = document.createElement("i");
-  icon.className = "fas fa-comment";
+  // const icon = document.createElement("i");
+  // icon.className = "fas fa-comment";
   deleteIcon.className = "delete__icon";
   const span = document.createElement("span");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("span");
+  span2.classList.add("delete__icon");
   span2.innerText = "❌";
-  newComment.appendChild(icon);
+  // newComment.appendChild(icon);
   newComment.appendChild(span);
   newComment.appendChild(span2);
   videoComments.prepend(newComment);
