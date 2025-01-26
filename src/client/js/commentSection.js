@@ -12,6 +12,7 @@ const addComment = (text, id) => {
   // icon.className = "fas fa-comment";
   deleteIcon.className = "delete__icon";
   const span = document.createElement("span");
+  span.classList.add("text");
   span.innerText = ` ${text}`;
   const span2 = document.createElement("span");
   span2.classList.add("delete__icon");
